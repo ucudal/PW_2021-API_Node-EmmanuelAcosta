@@ -54,14 +54,14 @@ app.post('/enviar-formulario', (req, res) => {
   
   if(!nombreContacto){
     res.status(400)
-    res.send('Faltan datos clave crack! Mandá de nuevo!');
+    res.send('Faltan datos clave!');
   }else{
     res.status(200)
     res.cookie(`PW_2021-CV_Contacto`, nombreContacto, {
       secure: true,
       httpOnly: true,
     })
-    res.send("Se envió la cookie bro! &#10003;&#10003;");
+    res.send("Formulario enviado correctamente!");
   }
 });
 
