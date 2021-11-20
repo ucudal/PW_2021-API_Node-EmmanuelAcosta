@@ -53,8 +53,8 @@ app.post('/enviar-formulario', (req, res) => {
   let nombreContacto = req.body.nombreContacto;
   
   if(!nombreContacto){
-    res.status(400)
-    res.send('Faltan datos clave!');
+    res.status(404)
+    res.send('Falta el nombre de contacto');
   }else{
     res.status(200)
     res.cookie(`PW_2021-CV_Contacto`, nombreContacto, {
