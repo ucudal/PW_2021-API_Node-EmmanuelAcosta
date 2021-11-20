@@ -1,6 +1,14 @@
 var express = require('express');
+var cors = require('cors');
 
 var app = express();
+
+
+
+app.use(cors({
+  origin: '*'
+}));
+
 
 let experiencia = {
   "experiencia-laboral":[
@@ -23,12 +31,12 @@ let experiencia = {
       "puesto":"FullStack Developer",
       "descripcion":"Desarrollo en Java, React, Angular.",
       "fechaInicio": new Date("2021-03-05"),
-      "fechaFin": new Date("Presente")
+      "fechaFin": null
     }
   ]
 }
 
-app.get('/hola-mundo', function(req, res) {
+app.get('/experiencia', function(req, res) {
   res.end(JSON.stringify(experiencia));
 });
 
