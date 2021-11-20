@@ -61,7 +61,7 @@ app.post('/enviar-formulario', (req, res) => {
       secure: true,
       httpOnly: true,
     })
-    res.send("Se envió la cookie bro!");
+    res.send("Se envió la cookie bro! &#10003;&#10003;");
   }
 });
 
