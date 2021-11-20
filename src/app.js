@@ -43,7 +43,7 @@ let experiencia = {
   ]
 }
 
-app.get('/experiencia', function(req, res) {
+app.get('/experiencia-laboral', function(req, res) {
   res.end(JSON.stringify(experiencia));
 });
 
