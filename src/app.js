@@ -53,7 +53,7 @@ app.post('/enviar-formulario', (req, res) => {
   let nombreContacto = req.body.nombreContacto;
   
   if(!nombreContacto){
-    res.status(404)
+    res.status(400)
     res.send('Falta el nombre de contacto');
   }else{
     res.status(200)
@@ -68,6 +68,11 @@ app.post('/enviar-formulario', (req, res) => {
 
 app.listen(process.env.PORT || 3000, (a) => {
   console.log("Servidor disponible en http://localhost:3000")
+});
+
+app.use(function(req,res){
+  res.status(404);
+  res.send('404 - No fue encontrado');
 });
  
 module.exports = app;
