@@ -46,7 +46,7 @@ let experiencia = {
 }
 
 app.get('/experiencia-laboral', function(req, res) {
-  res.end(JSON.stringify(experiencia));
+  res.send(experiencia);
 });
 
 app.post('/enviar-formulario', (req, res) => {
