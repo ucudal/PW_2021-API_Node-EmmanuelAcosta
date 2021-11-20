@@ -13,6 +13,13 @@ app.use(cors({
 let experiencia = {
   "experiencia-laboral":[
     {
+      "empresa":"Mercado Libre",
+      "puesto":"Representante de fraude",
+      "descripcion":"Investigación de posibles transacciones fraudulentas.",
+      "fechaInicio": new Date("2015-09-01"),
+      "fechaFin": new Date("2017-02-10")
+    },
+    {
       "empresa":"St Consultores",
       "puesto":"Programador Java Jr",
       "descripcion":"Tareas de desarrollo en Java, Apia.",
