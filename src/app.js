@@ -1,15 +1,17 @@
 var express = require('express');
 var cors = require('cors');
+var cookieParser = require('cookie-parser');
 
 var app = express();
-
+app.use(cookieParser());
 
 
 app.use(cors({
   origin: '*'
 }));
 
-
+app.use(express.urlencoded({extended: true}));
+app.use(express.json())
 let experiencia = {
   "experiencia-laboral":[
     {
@@ -46,6 +48,23 @@ let experiencia = {
 app.get('/experiencia-laboral', function(req, res) {
   res.end(JSON.stringify(experiencia));
 });
+
+app.post('/enviar-formulario', (req, res) => {
+  let nombreContacto = req.body.nombreContacto;
+  
+  if(!nombreContacto){
+    res.status(400)
+    res.send('Faltan datos clave crack! Mandá de nuevo!');
+  }else{
+    res.status(200)
+    res.cookie(`PW_2021-CV_Contacto`, nombreContacto, {
+      secure: true,
+      httpOnly: true,
+    })
+    res.send("Se envió la cookie bro!");
+  }
+});
+
 
 app.listen(process.env.PORT || 3000, (a) => {
   console.log("Servidor disponible en http://localhost:3000")
